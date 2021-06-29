@@ -17,8 +17,10 @@
         <div class="container">
             <div class="row text-white">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                    <h1 class="display-4">DAFTAR BARU VAKSIN COVID-19</h1>
-                    <h1 class="py-2 text-truncate">{{ date('d F Y') }}</h1>
+                    <h2>DAFTAR BARU VAKSIN COVID-19</h2>
+                    <h3>RUMKITBAN /RS DKT MOJOKERTO</h3>
+                    <p>(BUKA SENIN S.D JUMAT)</p>
+                    <P>PUKUL 07.00 S.D 08.00 PENDAFTARAN MAENTENANCE</P>
                     @if ($message = Session::get('success'))
                     <div class="row">
                         <div class="col mt-3">
@@ -86,6 +88,14 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-2">
+                                    <label>Kelurahan</label>
+                                </div>
+                                <div class="col-sm">
+                                    <input value="{{ old('kelurahan') }}" type="text" class="form-control" name="kelurahan">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-2">
                                     <label>Kecamatan</label>
                                 </div>
                                 <div class="col-sm">
@@ -99,27 +109,21 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-2">
-                                    <label>Kelurahan</label>
-                                </div>
-                                <div class="col-sm">
-                                    <input value="{{ old('kelurahan') }}" type="text" class="form-control" name="kelurahan">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-2">
                                     <label>Keluarga besar TNI</label>
                                 </div>
                                 <div class="col-sm">
                                     <select name="keluarga_besar_tni" class="form-control">
                                         <option value=""></option>
-                                        <option {{ old('keluarga_besar_tni')=='KODIM 0815'?'selected':'' }} value="KODIM 0815">KODIM 0815</option>
                                         <option {{ old('keluarga_besar_tni')=='KOREM 082'?'selected':'' }} value="KOREM 082">KOREM 082</option>
-                                        <option {{ old('keluarga_besar_tni')=='AJENRAM 082'?'selected':'' }} value="AJENRAM 082">AJENRAM 082</option>
-                                        <option {{ old('keluarga_besar_tni')=='PENKASYAN'?'selected':'' }} value="PENKASYAN">PENKASYAN</option>
-                                        <option {{ old('keluarga_besar_tni')=='DENPAS'?'selected':'' }} value="DENPAS">DENPAS</option>
+                                        <option {{ old('keluarga_besar_tni')=='KODIM 0815'?'selected':'' }} value="KODIM 0815">KODIM 0815</option>
+                                        <option {{ old('keluarga_besar_tni')=='DENKESYAH'?'selected':'' }} value="DENKESYAH">DENKESYAH</option>
+                                        <option {{ old('keluarga_besar_tni')=='AJENREM 082'?'selected':'' }} value="AJENREM 082">AJENREM 082</option>
+                                        <option {{ old('keluarga_besar_tni')=='DENPAL'?'selected':'' }} value="DENPAL">DENPAL</option>
                                         <option {{ old('keluarga_besar_tni')=='DENPOM'?'selected':'' }} value="DENPOM">DENPOM</option>
-                                        <option {{ old('keluarga_besar_tni')=='DENEKANG'?'selected':'' }} value="DENEKANG">DENEKANG</option>
-                                        <option {{ old('keluarga_besar_tni')=='MINVES'?'selected':'' }} value="MINVES">MINVES</option>
+                                        <option {{ old('keluarga_besar_tni')=='MINVET'?'selected':'' }} value="MINVET">MINVET</option>
+                                        <option {{ old('keluarga_besar_tni')=='DENBEKANG'?'selected':'' }} value="DENBEKANG">DENBEKANG</option>
+                                        <option {{ old('keluarga_besar_tni')=='DENHUBREM'?'selected':'' }} value="DENHUBREM">DENHUBREM</option>
+                                        <option {{ old('keluarga_besar_tni')=='ZIBANG'?'selected':'' }} value="ZIBANG">ZIBANG</option>
                                         <option {{ old('keluarga_besar_tni')=='MASYARAKAT UMUM'?'selected':'' }} value="MASYARAKAT UMUM">MASYARAKAT UMUM</option>
                                     </select>
                                 </div>
