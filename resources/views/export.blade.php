@@ -17,7 +17,7 @@
         @foreach ($data as $item)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $item->nik }}</td>
+            <td>nik-{{ $item->nik }}</td>
             <td>{{ date('d/m/Y', strtotime($item->tgl_lahir)) }}</td>
             <td>{{ $item->no_hp }}</td>
             <td>{{ $item->nama }}</td>
