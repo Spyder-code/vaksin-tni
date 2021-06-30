@@ -103,12 +103,7 @@
                                     <label>Kecamatan</label>
                                 </div>
                                 <div class="col-sm">
-                                    <select name="kecamatan" id="kecamatan" class="form-control">
-                                        <option value=""></option>
-                                        @foreach ($kecamatan as $item)
-                                            <option {{ $item->nama==old('kecamatan')?'selected':'' }} value="{{ $item->nama }}" data-id="{{ $item->id }}">{{ $item->nama }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input value="{{ old('kecamatan') }}" type="text" class="form-control" name="kecamatan">
                                 </div>
                             </div>
                             <div class="form-group row">

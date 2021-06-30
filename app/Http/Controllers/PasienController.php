@@ -14,10 +14,9 @@ class PasienController extends Controller
 
     public function index()
     {
-        $kecamatan = Kecamatan::all()->whereIn('kabupaten_id',[3516,3576]);
         $pasien = Pasien::all()->count();
         $setting = Setting::find(1);
-        return view('pasien', compact('kecamatan','pasien','setting'));
+        return view('pasien', compact('pasien','setting'));
     }
 
     public function pasienPost(Request $request)
