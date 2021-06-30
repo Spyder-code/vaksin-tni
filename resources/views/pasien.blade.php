@@ -26,9 +26,6 @@
                         <div class="col mt-3">
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <strong>{{ $message }}</strong>
-                                @if ($message=='The nik has already been taken.')
-                                    <strong>NIK sudah terdaftar</strong>
-                                @endif
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         </div>
@@ -44,6 +41,13 @@
                         </div>
                     @endif
                     <div class="px-2">
+                        @if ($pasien==$setting->batas)
+                            <div class="justify-content-center">
+                                <div class="alert alert-danger">
+                                    {{ $setting->pesan }}
+                                </div>
+                            </div>
+                        @else
                         <form action="{{ route('pasien.post') }}" method="POST" class="justify-content-center">
                             @csrf
                             <div class="form-group row">
@@ -131,6 +135,7 @@
                             
                             <button type="submit" class="btn btn-success btn-lg">Simpan</button>
                         </form>
+                        @endif
                     </div>
                 </div>
             </div>

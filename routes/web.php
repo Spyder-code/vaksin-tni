@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Kecamatan;
+use App\Models\Pasien;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $kecamatan = Kecamatan::all()->whereIn('kabupaten_id',[3516,3576]);
-    return view('pasien', compact('kecamatan'));
-})->middleware('visitor');
 Route::get('/blank', function () {
     return view('admin.blank');
 })->name('blank');
@@ -29,8 +26,11 @@ Route::get('/export', [App\Http\Controllers\HomeController::class, 'export'])->n
 Route::get('/delete', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 Route::get('/pasien', [App\Http\Controllers\HomeController::class, 'pasien'])->name('pasien');
+Route::get('/setting', [App\Http\Controllers\HomeController::class, 'setting'])->name('setting');
 Route::post('/pasienPost', [App\Http\Controllers\PasienController::class, 'pasienPost'])->name('pasien.post');
+Route::get('/', [App\Http\Controllers\PasienController::class, 'index'])->name('landingpage')->middleware('visitor');
 Route::post('/', [App\Http\Controllers\PasienController::class, 'kelurahan'])->name('kelurahan');
+Route::put('/setting', [App\Http\Controllers\HomeController::class, 'updateSetting'])->name('setting.update');
 Route::put('/profile/{id}', [App\Http\Controllers\UserController::class, 'updateProfile'])->name('profile.update');
 Route::put('/profile/password/{id}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('profile.update.password');
 Route::put('/profile/image/{id}', [App\Http\Controllers\UserController::class, 'updateImage'])->name('profile.update.image');

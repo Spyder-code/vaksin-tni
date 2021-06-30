@@ -18,7 +18,7 @@
             </div>
             <div class="white-box">
                 <div class="d-md-flex mb-3">
-                    <h3 class="box-title mb-0">Data pasien</h3>
+                    <h3 class="box-title mb-0">Total pendaftar: {{ $data->count() }}</h3>
                 </div>
                 <div class="table-responsive">
                     <table class="table no-wrap">

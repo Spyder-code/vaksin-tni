@@ -89,6 +89,13 @@
                                     <span class="hide-menu">Data pasien</span>
                                 </a>
                             </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('setting') }}"
+                                    aria-expanded="false">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                    <span class="hide-menu">Setting</span>
+                                </a>
+                            </li>
                             <li class="text-center p-20 upgrade-btn">
                                 <form action="{{ route('logout') }}" method="post">
                                     @csrf

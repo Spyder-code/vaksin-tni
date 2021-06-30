@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\PasienExport;
 use App\Models\Pasien;
+use App\Models\Setting;
 use App\Models\User;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
@@ -45,6 +46,23 @@ class HomeController extends Controller
     {
         $data = Pasien::all();
         return view('admin.pasien', compact('data'));
+    }
+
+    public function setting()
+    {
+        $setting = Setting::find(1);
+        return view('admin.setting',compact('setting'));
+    }
+
+    public function updateSetting(Request $request)
+    {
+        $request->validate([
+            'batas' => 'required',
+            'pesan' => 'required',
+        ]);
+
+        Setting::find(1)->update($request->all());
+        return back()->with('success','Data berhasil disimpan');
     }
 
     public function export() 
