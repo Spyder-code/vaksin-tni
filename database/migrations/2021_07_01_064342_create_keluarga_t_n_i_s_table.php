@@ -13,7 +13,7 @@ class CreateKeluargaTNISTable extends Migration
      */
     public function up()
     {
-        Schema::create('keluargaTNI', function (Blueprint $table) {
+        Schema::create('keluargatni', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->timestamps();
