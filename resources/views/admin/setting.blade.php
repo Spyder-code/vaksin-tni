@@ -9,6 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <h4>Setting </h4>
                 <div class="white-box">
                     @if ($message = Session::get('success'))
                     <div class="row">
@@ -33,6 +34,14 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
+                            <label class="form-label">Buka</label>
+                            <input type="text" name="buka" class="form-control" value="{{ $setting->buka }}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Pukul</label>
+                            <input type="text" name="pukul" class="form-control" value="{{ $setting->pukul }}">
+                        </div>
+                        <div class="form-group">
                             <label class="form-label">Batas pendaftar</label>
                             <input type="number" name="batas" class="form-control" value="{{ $setting->batas }}">
                         </div>
@@ -44,6 +53,55 @@
                             <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h4>Keluarga Besar TNI</h4>
+                <div class="white-box">
+                    <div class="">
+                        <form action="{{ route('keluarga.add') }}" method="post">
+                            @csrf
+                            <div class="form-group row">
+                                <div class="col-2">
+                                    <label>Nama Keluarga</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="nama" class="form-control">
+                                </div>
+                                <div class="col-2">
+                                    <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-success"><i class="fas fa-save"></i> Tambahkan</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table no-wrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">#</th>
+                                    <th class="border-top-0">Nama keluarga</th>
+                                    <th class="border-top-0">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>
+                                        <form action="{{ route('keluarga.delete',['id'=>$item->id]) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

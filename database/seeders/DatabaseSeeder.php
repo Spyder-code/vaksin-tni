@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(1)->create();
         $this->call([
-            SettingSeeder::class
+            SettingSeeder::class,
+            KeluargaTNISeeder::class,
         ]);
     }
 }

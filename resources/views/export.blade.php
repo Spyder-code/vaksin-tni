@@ -4,6 +4,7 @@
             <th>#</th>
             <th>nik</th>
             <th>tgl_lahir</th>
+            <th>jenis_kelamin</th>
             <th>no_hp</th>
             <th>nama</th>
             <th>alamat</th>
@@ -19,6 +20,7 @@
             <td>{{ $loop->iteration }}</td>
             <td>nik-{{ $item->nik }}</td>
             <td>{{ date('d/m/Y', strtotime($item->tgl_lahir)) }}</td>
+            <td>{{ $item->jenis_kelamin }}</td>
             <td>{{ $item->no_hp }}</td>
             <td>{{ $item->nama }}</td>
             <td>{{ $item->alamat }}</td>

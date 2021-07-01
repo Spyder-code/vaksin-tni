@@ -27,10 +27,13 @@ Route::get('/delete', [App\Http\Controllers\HomeController::class, 'delete'])->n
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 Route::get('/pasien', [App\Http\Controllers\HomeController::class, 'pasien'])->name('pasien');
 Route::get('/setting', [App\Http\Controllers\HomeController::class, 'setting'])->name('setting');
-Route::post('/pasienPost', [App\Http\Controllers\PasienController::class, 'pasienPost'])->name('pasien.post');
 Route::get('/', [App\Http\Controllers\PasienController::class, 'index'])->name('landingpage')->middleware('visitor');
+Route::post('/keluarga-add', [App\Http\Controllers\HomeController::class, 'addKeluarga'])->name('keluarga.add');
+Route::post('/pasienPost', [App\Http\Controllers\PasienController::class, 'pasienPost'])->name('pasien.post');
 Route::post('/', [App\Http\Controllers\PasienController::class, 'kelurahan'])->name('kelurahan');
 Route::put('/setting', [App\Http\Controllers\HomeController::class, 'updateSetting'])->name('setting.update');
 Route::put('/profile/{id}', [App\Http\Controllers\UserController::class, 'updateProfile'])->name('profile.update');
 Route::put('/profile/password/{id}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('profile.update.password');
 Route::put('/profile/image/{id}', [App\Http\Controllers\UserController::class, 'updateImage'])->name('profile.update.image');
+Route::delete('/keluarga-delete/{id}', [App\Http\Controllers\HomeController::class, 'deleteKeluarga'])->name('keluarga.delete');
+

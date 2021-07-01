@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kecamatan;
+use App\Models\KeluargaTNI;
 use App\Models\Kelurahan;
 use App\Models\Pasien;
 use App\Models\Setting;
@@ -16,7 +17,8 @@ class PasienController extends Controller
     {
         $pasien = Pasien::all()->count();
         $setting = Setting::find(1);
-        return view('pasien', compact('pasien','setting'));
+        $data = KeluargaTNI::all();
+        return view('pasien', compact('pasien','setting','data'));
     }
 
     public function pasienPost(Request $request)
@@ -25,6 +27,7 @@ class PasienController extends Controller
             'nik' => 'required|unique:pasien,nik',
             'tgl_lahir' => 'required',
             'no_hp' => 'required',
+            'jenis_kelamin' => 'required',
             'nama' => 'required',
             'alamat' => 'required',
             'kelurahan' => 'required',

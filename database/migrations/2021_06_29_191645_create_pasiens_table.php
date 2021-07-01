@@ -20,6 +20,7 @@ class CreatePasiensTable extends Migration
             $table->string('no_hp');
             $table->string('nama');
             $table->text('alamat');
+            $table->string('jenis_kelamin');
             $table->string('kelurahan');
             $table->string('kecamatan');
             $table->string('keluarga_besar_tni');

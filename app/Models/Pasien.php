@@ -16,6 +16,7 @@ class Pasien extends Model
         'no_hp',
         'nama',
         'alamat',
+        'jenis_kelamin',
         'kelurahan',
         'kecamatan',
         'keluarga_besar_tni'

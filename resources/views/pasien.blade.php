@@ -12,15 +12,15 @@
     <link href="{{ asset('dashboard') }}/css/style.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-primary">
+<body style="background-color: #dfebfd">
     <div id="cover-caption">
         <div class="container">
-            <div class="row text-white">
+            <div class="row text-primary">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
                     <h2>DAFTAR BARU VAKSIN COVID-19</h2>
                     <h3>RUMKITBAN /RS DKT MOJOKERTO</h3>
-                    <p>(BUKA SENIN S.D JUMAT)</p>
-                    <P>PUKUL 07.00 S.D 08.00 PENDAFTARAN MAENTENANCE</P>
+                    <p>{{ $setting->buka }}</p>
+                    <P>{{ $setting->pukul }}</P>
                     @if ($message = Session::get('success'))
                     <div class="row">
                         <div class="col mt-3">
@@ -64,6 +64,18 @@
                                 </div>
                                 <div class="col-sm">
                                     <input value="{{ old('tgl_lahir') }}" type="date" class="form-control" name="tgl_lahir">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-2">
+                                    <label>Jenis Kelamin</label>
+                                </div>
+                                <div class="col-sm">
+                                    <select name="jenis_kelamin" class="form-control">
+                                        <option {{ old('jenis_kelamin')==''?'selected':'' }} value=""></option>
+                                        <option {{ old('jenis_kelamin')=='Laki-laki'?'selected':'' }} value="Laki-laki">Laki-laki</option>
+                                        <option {{ old('jenis_kelamin')=='Perempuan'?'selected':'' }} value="Perempuan">Perempuan</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -113,17 +125,9 @@
                                 <div class="col-sm">
                                     <select name="keluarga_besar_tni" class="form-control">
                                         <option value=""></option>
-                                        <option {{ old('keluarga_besar_tni')=='KOREM 082'?'selected':'' }} value="KOREM 082">KOREM 082</option>
-                                        <option {{ old('keluarga_besar_tni')=='KODIM 0815'?'selected':'' }} value="KODIM 0815">KODIM 0815</option>
-                                        <option {{ old('keluarga_besar_tni')=='DENKESYAH'?'selected':'' }} value="DENKESYAH">DENKESYAH</option>
-                                        <option {{ old('keluarga_besar_tni')=='AJENREM 082'?'selected':'' }} value="AJENREM 082">AJENREM 082</option>
-                                        <option {{ old('keluarga_besar_tni')=='DENPAL'?'selected':'' }} value="DENPAL">DENPAL</option>
-                                        <option {{ old('keluarga_besar_tni')=='DENPOM'?'selected':'' }} value="DENPOM">DENPOM</option>
-                                        <option {{ old('keluarga_besar_tni')=='MINVET'?'selected':'' }} value="MINVET">MINVET</option>
-                                        <option {{ old('keluarga_besar_tni')=='DENBEKANG'?'selected':'' }} value="DENBEKANG">DENBEKANG</option>
-                                        <option {{ old('keluarga_besar_tni')=='DENHUBREM'?'selected':'' }} value="DENHUBREM">DENHUBREM</option>
-                                        <option {{ old('keluarga_besar_tni')=='ZIBANG'?'selected':'' }} value="ZIBANG">ZIBANG</option>
-                                        <option {{ old('keluarga_besar_tni')=='MASYARAKAT UMUM'?'selected':'' }} value="MASYARAKAT UMUM">MASYARAKAT UMUM</option>
+                                        @foreach ($data as $item)
+                                            <option {{ $item->nama==old('keluarga_besar_tni'?'selected':'') }} value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
