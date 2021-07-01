@@ -41,7 +41,7 @@
                         </div>
                     @endif
                     <div class="px-2">
-                        @if ($pasien==$setting->batas)
+                        @if ($pasien>=$setting->batas)
                             <div class="justify-content-center">
                                 <div class="alert alert-danger">
                                     {{ $setting->pesan }}
