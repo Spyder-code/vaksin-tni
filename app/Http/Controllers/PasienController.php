@@ -41,9 +41,15 @@ class PasienController extends Controller
         ];
     
         $this->validate($request, $rules, $customMessages);
-
-        Pasien::create($request->all());
-        return back()->with('success','Data berhasil disimpan');
+        $pasien = Pasien::all()->count();
+        $setting = Setting::find(1);
+        if ($pasien>=$setting->batas) {
+            return back();
+        } else {
+            Pasien::create($request->all());
+            return back()->with('success','Data berhasil disimpan');
+        }
+        
     }
 
     public function kelurahan(Request $request)
