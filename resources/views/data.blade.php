@@ -41,6 +41,11 @@
                                     <td>:</td>
                                     <td>{{ $pasien->nik }}</td>
                                 </tr>
+                                <tr>
+                                    <td class="td">Vaksin ke</td>
+                                    <td>:</td>
+                                    <td>{{ $pasien->vaksin_ke }}</td>
+                                </tr>
                             </table>
                             <a href="{{ route('download',['pasien'=>$pasien->id]) }}" class="btn btn-success"> Download PDF</a>
                         </div>

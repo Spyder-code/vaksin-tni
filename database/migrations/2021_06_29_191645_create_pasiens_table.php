@@ -21,6 +21,7 @@ class CreatePasiensTable extends Migration
             $table->date('tgl_lahir');
             $table->string('no_hp');
             $table->string('nama');
+            $table->string('vaksin_ke');
             $table->text('alamat');
             $table->string('jenis_kelamin');
             $table->string('kelurahan');

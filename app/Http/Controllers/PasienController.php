@@ -30,6 +30,7 @@ class PasienController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'kelurahan' => 'required',
+            'vaksin_ke' => 'required',
             'kecamatan' => 'required',
             'keluarga_besar_tni' => 'required',
         ];
@@ -71,6 +72,7 @@ class PasienController extends Controller
             $data->no_hp = $request->no_hp;
             $data->jenis_kelamin = $request->jenis_kelamin;
             $data->nama = $request->nama;
+            $data->vaksin_ke = $request->vaksin_ke;
             $data->alamat = $request->alamat;
             $data->kelurahan = $request->kelurahan;
             $data->kecamatan = $request->kecamatan;
@@ -123,6 +125,11 @@ class PasienController extends Controller
                             <td class="td">NIK</td>
                             <td>:</td>
                             <td>'.$pasien->nik.'</td>
+                        </tr>
+                        <tr>
+                            <td class="td">Vaksin ke</td>
+                            <td>:</td>
+                            <td>'.$pasien->vaksin_ke.'</td>
                         </tr>
                     </table>
                 </div>

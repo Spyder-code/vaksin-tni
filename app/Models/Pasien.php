@@ -17,6 +17,7 @@ class Pasien extends Model
         'tgl_lahir',
         'no_hp',
         'nama',
+        'vaksin_ke',
         'alamat',
         'jenis_kelamin',
         'kelurahan',

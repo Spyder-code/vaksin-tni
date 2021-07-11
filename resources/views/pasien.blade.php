@@ -131,6 +131,18 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <div class="col-2">
+                                    <label>Vaksin Ke</label>
+                                </div>
+                                <div class="col-sm">
+                                    <select name="vaksin_ke" class="form-control">
+                                        <option value=""></option>
+                                        <option {{ old('vaksin_ke')== '1 (satu)'?'selected':'' }} value="1 (satu)">1 (satu)</option>
+                                        <option {{ old('vaksin_ke')== '2 (dua)'?'selected':'' }} value="2 (dua)">2 (dua)</option>
+                                    </select>
+                                </div>
+                            </div>
                             
                             <button type="submit" class="btn btn-success btn-lg">Simpan</button>
                         </form>
