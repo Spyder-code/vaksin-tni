@@ -29,7 +29,7 @@
                                 <tr>
                                     <td class="td">Nomor</td>
                                     <td>:</td>
-                                    <td>{{ $pasien->no }}</td>
+                                    <td>{{ $pasien->kode }}</td>
                                 </tr>
                                 <tr>
                                     <td class="td">Nama</td>
