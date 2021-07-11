@@ -9,6 +9,7 @@
     <title>Spydercode Admin Dashboard</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/logo-icon.png') }}">
     <link href="{{ asset('dashboard') }}/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -141,6 +142,8 @@
     <script src="{{ asset('dashboard') }}/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('dashboard') }}/js/sidebarmenu.js"></script>
     <script src="{{ asset('dashboard') }}/js/custom.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    @yield('script')
 </body>
 
 </html>

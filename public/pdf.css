@@ -1,0 +1,24 @@
+.header{
+    text-align: center;
+    justify-content: center;
+}
+
+.qr{
+    margin-left: 400px;
+    position: absolute;
+    left: 200px;
+    top: -200px;
+}
+
+.img{
+    width: 200px;
+    height: 200px;
+}
+
+.flex{
+    display: flex;
+}
+
+.td{
+    width: 100px;
+}

@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/blank', function () {
-    return view('admin.blank');
+    $pas = Pasien::latest('id')->first();
+    dd($pas->id +1);
 })->name('blank');
 
 Auth::routes();
@@ -31,6 +32,8 @@ Route::get('/', [App\Http\Controllers\PasienController::class, 'index'])->name('
 Route::post('/keluarga-add', [App\Http\Controllers\HomeController::class, 'addKeluarga'])->name('keluarga.add');
 Route::post('/pasienPost', [App\Http\Controllers\PasienController::class, 'pasienPost'])->name('pasien.post');
 Route::post('/', [App\Http\Controllers\PasienController::class, 'kelurahan'])->name('kelurahan');
+Route::get('/data/{pasien}', [App\Http\Controllers\PasienController::class, 'data'])->name('data');
+Route::get('/download/{pasien}', [App\Http\Controllers\PasienController::class, 'download'])->name('download');
 Route::put('/setting', [App\Http\Controllers\HomeController::class, 'updateSetting'])->name('setting.update');
 Route::put('/profile/{id}', [App\Http\Controllers\UserController::class, 'updateProfile'])->name('profile.update');
 Route::put('/profile/password/{id}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('profile.update.password');

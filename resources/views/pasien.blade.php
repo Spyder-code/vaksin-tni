@@ -55,7 +55,7 @@
                                     <label>NIK</label>
                                 </div>
                                 <div class="col-sm">
-                                    <input value="{{ old('nik') }}" type="text" class="form-control" name="nik">
+                                    <input value="{{ old('nik') }}" type="number" onkeypress="return this.value.length < 16;" oninput="if(this.value.length>=16) { this.value = this.value.slice(0,16); }" class="form-control" name="nik">
                                 </div>
                             </div>
                             <div class="form-group row">

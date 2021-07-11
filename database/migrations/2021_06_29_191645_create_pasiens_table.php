@@ -15,6 +15,8 @@ class CreatePasiensTable extends Migration
     {
         Schema::create('pasien', function (Blueprint $table) {
             $table->id();
+            $table->string('no');
+            $table->string('kode');
             $table->string('nik');
             $table->date('tgl_lahir');
             $table->string('no_hp');

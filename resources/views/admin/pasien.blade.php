@@ -21,10 +21,11 @@
                     <h3 class="box-title mb-0">Total pendaftar: {{ $data->count() }}</h3>
                 </div>
                 <div class="table-responsive">
-                    <table class="table no-wrap">
+                    <table class="table no-wrap" id="myTable">
                         <thead>
                             <tr>
                                 <th class="border-top-0">#</th>
+                                <th class="border-top-0">Kode</th>
                                 <th class="border-top-0">nik</th>
                                 <th class="border-top-0">tgl_lahir</th>
                                 <th class="border-top-0">no_hp</th>
@@ -40,6 +41,7 @@
                             @foreach ($data as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->kode }}</td>
                                 <td>{{ $item->nik }}</td>
                                 <td>{{ $item->tgl_lahir }}</td>
                                 <td>{{ $item->no_hp }}</td>
@@ -58,4 +60,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        });
+    </script>
 @endsection
